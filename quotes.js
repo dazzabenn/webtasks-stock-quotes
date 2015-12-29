@@ -1,6 +1,8 @@
 "use strict";
 
 var http = require('http');
+var parallel    = require('async').parallel;
+var MongoClient = require('mongodb').MongoClient;
 
 module.exports = function(ctx, done) {
     
@@ -43,7 +45,26 @@ module.exports = function(ctx, done) {
                     quotes.push(quote);
                 }
                 
-                return done(null, quotes);
+                MongoClient.connect(ctx.data.MONGO_URL, function (err, db) {
+                    if(err) return done(err);
+
+                    var job_list = quotes.map(function (quote) {
+
+                        return function (cb) {
+                            save_quote(quote, db, function (err) {
+                                if(err) return cb(err);
+
+                                cb(null);
+                            });
+                        };
+                    }); 
+
+                    parallel(job_list, function (err) {
+                        if(err) return done(err);
+
+                        done(null, 'Success.');
+                    });
+              });
             }
         });
     })
