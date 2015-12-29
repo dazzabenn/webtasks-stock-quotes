@@ -14,7 +14,8 @@ To set on a cron schedule:
 $ wt cron schedule -n stockcron \ 
  -s tickers=AAPL,MSFT,BP \
  "*/1 * * * *" \
- https://raw.githubusercontent.com/dazzabenn/webtasks-stock-quotes/master/quotes.js
+ https://raw.githubusercontent.com/dazzabenn/webtasks-stock-quotes/master/quotes.js \
+ --secret MONGO_URL=mongodb://stock:test@ds037195.mongolab.com:37195/stock-quotes
  ```
  
 Moify the cron schedule as you see fit. Any number of tickers can be set, they just need to be in a comma separated list and be valid Google stock code symbols.
