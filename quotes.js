@@ -4,6 +4,18 @@ var http = require('http');
 var parallel    = require('async').parallel;
 var MongoClient = require('mongodb').MongoClient;
 
+function save_quote(quote, db, cb) {
+  db
+    .collection('quotes')
+    .insertOne(doc, function (err, result) {
+      if(err) return cb(err);
+
+      console.log('Successfully inserted a document into the quotes collection');
+
+      cb(result);
+    });
+}
+
 module.exports = function(ctx, done) {
     
     getQuotes(ctx.data.tickers);
