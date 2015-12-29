@@ -2,7 +2,11 @@
 
 To generate this webtask run the following command:
 
-```$ wt create https://raw.githubusercontent.com/dazzabenn/webtasks-stock-quotes/master/quotes.js```
+```bash
+$ wt create https://raw.githubusercontent.com/dazzabenn/webtasks-stock-quotes/master/quotes.js \
+--name quotes \
+--secret MONGO_URL=mongodb://stock:test@ds037195.mongolab.com:37195/stock-quotes
+```
 
 To set on a cron schedule:
 
