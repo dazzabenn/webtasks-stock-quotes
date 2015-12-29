@@ -12,7 +12,7 @@ function save_quote(quote, db, cb) {
 
       console.log('Successfully inserted a document into the quotes collection');
 
-      cb(result);
+      cb(null);
     });
 }
 
