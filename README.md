@@ -11,7 +11,7 @@ $ wt create https://raw.githubusercontent.com/dazzabenn/webtasks-stock-quotes/ma
 To set on a cron schedule:
 
 ```bash
-wt cron schedule -n stockcron \ 
+$ wt cron schedule -n stockcron \ 
  -s tickers=AAPL,MSFT,BP \
  "*/1 * * * *" \
  https://raw.githubusercontent.com/dazzabenn/webtasks-stock-quotes/master/quotes.js
