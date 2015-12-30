@@ -20,4 +20,4 @@ $ wt cron schedule -n stockcron \
 
 > This will schedule a collection of stock symbols from Google Finance every minute and insert the results into a MongoDB database.
  
-Moify the cron schedule as you see fit. Any number of tickers can be set, they just need to be in a comma separated list and be valid Google stock code symbols.
+Modify the cron schedule as you see fit. Any number of tickers can be set, they just need to be in a comma separated list and be valid Google stock code symbols.
