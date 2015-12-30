@@ -1,5 +1,7 @@
 # webtasks-stock-quotes
 
+Requests quote data from Google Finance for a given set of ticker symbols and stores the result in a MongoDB database.
+
 To generate this webtask run the following command:
 
 ```bash
